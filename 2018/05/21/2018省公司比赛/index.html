@@ -93,17 +93,19 @@
 
 
 
-<meta name="description" content="Welcome!">
+<meta name="description" content="3. 信息泄露使用御剑扫描目录可以发现压缩包www.zip，解压可获得index.php，代码如下 1234&amp;lt;?phprequire_once(&apos;cfg.php&apos;);eval(base64_decode(&quot;aWYoIWVtcHR5KCRfR0VUWydkM3M1cDQnXSkgJiYgJF9HRVRbJ2QzczVwNCddPT1maWxlX2dldF9jb250ZW50cygkX0dFVF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2018省公司比赛">
 <meta property="og:url" content="http://yoursite.com/2018/05/21/2018省公司比赛/index.html">
 <meta property="og:site_name" content="WangJeff&#39;s Blog">
-<meta property="og:description" content="Welcome!">
+<meta property="og:description" content="3. 信息泄露使用御剑扫描目录可以发现压缩包www.zip，解压可获得index.php，代码如下 1234&amp;lt;?phprequire_once(&apos;cfg.php&apos;);eval(base64_decode(&quot;aWYoIWVtcHR5KCRfR0VUWydkM3M1cDQnXSkgJiYgJF9HRVRbJ2QzczVwNCddPT1maWxlX2dldF9jb250ZW50cygkX0dFVF">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-21T13:45:03.469Z">
+<meta property="og:image" content="c:/Users/scut_/AppData/Local/Temp/1526911541938.png">
+<meta property="og:updated_time" content="2018-05-21T14:06:46.723Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2018省公司比赛">
-<meta name="twitter:description" content="Welcome!">
+<meta name="twitter:description" content="3. 信息泄露使用御剑扫描目录可以发现压缩包www.zip，解压可获得index.php，代码如下 1234&amp;lt;?phprequire_once(&apos;cfg.php&apos;);eval(base64_decode(&quot;aWYoIWVtcHR5KCRfR0VUWydkM3M1cDQnXSkgJiYgJF9HRVRbJ2QzczVwNCddPT1maWxlX2dldF9jb250ZW50cygkX0dFVF">
+<meta name="twitter:image" content="c:/Users/scut_/AppData/Local/Temp/1526911541938.png">
 
 
 
@@ -381,7 +383,16 @@
       
 
       
-        
+        <h5 id="3-信息泄露"><a href="#3-信息泄露" class="headerlink" title="3. 信息泄露"></a>3. 信息泄露</h5><p>使用御剑扫描目录可以发现压缩包www.zip，解压可获得index.php，代码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">require_once</span>(<span class="string">'cfg.php'</span>);</div><div class="line"><span class="keyword">eval</span>(base64_decode(<span class="string">"aWYoIWVtcHR5KCRfR0VUWydkM3M1cDQnXSkgJiYgJF9HRVRbJ2QzczVwNCddPT1maWxlX2dldF9jb250ZW50cygkX0dFVFsnZmlsZSddKSkgZWNobyAkZmxhZztlbHNlIGRpZSgnT2guLi4uLicpOw=="</span>));</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>base64解密可获得代码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!<span class="keyword">empty</span>($_GET[<span class="string">'d3s5p4'</span>]) &amp;&amp; $_GET[<span class="string">'d3s5p4'</span>]==file_get_contents($_GET[<span class="string">'file'</span>])) </div><div class="line">    <span class="keyword">echo</span> $flag;</div><div class="line"><span class="keyword">else</span> </div><div class="line">    <span class="keyword">die</span>(<span class="string">'Oh.....'</span>);</div></pre></td></tr></table></figure>
+<p>想要获得flag必须传入d3s5p4和file两个参数，其中d3s5p4不能为空，file_get_contents($_GET[‘file’])的值与d3s5p4传入的值要相等。可以使用php输入流来解决。</p>
+<blockquote>
+<p>php://input是一个只读信息流，当请求方式是post的，并且enctype不等于”multipart/form-data”时，可以使用php://input来获取原始请求的数据。 </p>
+</blockquote>
+<p><img src="C:\Users\scut_\AppData\Local\Temp\1526911541938.png" alt=""></p>
+
       
     </div>
 
@@ -479,8 +490,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ww1.sinaimg.cn/large/005YcLbTgy1fgqthqzibbj30dc0dcjt3.jpg"
@@ -524,6 +544,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-信息泄露"><span class="nav-number">1.</span> <span class="nav-text">3. 信息泄露</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

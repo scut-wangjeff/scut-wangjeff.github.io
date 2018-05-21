@@ -386,7 +386,16 @@
       
         
           
-            
+            <h5 id="3-信息泄露"><a href="#3-信息泄露" class="headerlink" title="3. 信息泄露"></a>3. 信息泄露</h5><p>使用御剑扫描目录可以发现压缩包www.zip，解压可获得index.php，代码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">require_once</span>(<span class="string">'cfg.php'</span>);</div><div class="line"><span class="keyword">eval</span>(base64_decode(<span class="string">"aWYoIWVtcHR5KCRfR0VUWydkM3M1cDQnXSkgJiYgJF9HRVRbJ2QzczVwNCddPT1maWxlX2dldF9jb250ZW50cygkX0dFVFsnZmlsZSddKSkgZWNobyAkZmxhZztlbHNlIGRpZSgnT2guLi4uLicpOw=="</span>));</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>base64解密可获得代码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!<span class="keyword">empty</span>($_GET[<span class="string">'d3s5p4'</span>]) &amp;&amp; $_GET[<span class="string">'d3s5p4'</span>]==file_get_contents($_GET[<span class="string">'file'</span>])) </div><div class="line">    <span class="keyword">echo</span> $flag;</div><div class="line"><span class="keyword">else</span> </div><div class="line">    <span class="keyword">die</span>(<span class="string">'Oh.....'</span>);</div></pre></td></tr></table></figure>
+<p>想要获得flag必须传入d3s5p4和file两个参数，其中d3s5p4不能为空，file_get_contents($_GET[‘file’])的值与d3s5p4传入的值要相等。可以使用php输入流来解决。</p>
+<blockquote>
+<p>php://input是一个只读信息流，当请求方式是post的，并且enctype不等于”multipart/form-data”时，可以使用php://input来获取原始请求的数据。 </p>
+</blockquote>
+<p><img src="C:\Users\scut_\AppData\Local\Temp\1526911541938.png" alt=""></p>
+
           
         
       
